@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 /// <summary>
 /// Player has its own _PlayerGrid, and can see an _EnemyGrid, it can also check if
 /// all ships are deployed and if all ships are detroyed. A Player can also attach.
@@ -200,12 +203,12 @@ public class Player : IEnumerable<Ship>
 	/// has.
 	/// </summary>
 	/// <returns>A Ship enumerator</returns>
-	IEnumerator IEnumerable.GetEnumerator()
+	IEnumerator<Ship> IEnumerable<Ship>.GetEnumerator()
 	{
 		return this.GetEnumerator1();
 	}
 	
-	public IEnumerator GetEnumerator1()
+	public IEnumerator<Ship> GetEnumerator1()
 	{
 		Ship[] result = new Ship[_Ships.Values.Count + 1];
 		_Ships.Values.CopyTo(result, 0);

@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 /// <summary>
 /// The AIMediumPlayer is a type of AIPlayer where it will try and destroy a ship
 /// if it has found a ship
@@ -16,7 +19,7 @@ public class AIMediumPlayer : AIPlayer
 	}
 	
 	private AIStates _CurrentState = AIStates.Searching;
-	private Stack<Location> _Targets = new Stack<Location>();
+	private readonly Stack<Location> _Targets = new Stack<Location>();
 	
 	public AIMediumPlayer(BattleShipsGame controller) : base(controller)
 	{
@@ -63,8 +66,8 @@ public class AIMediumPlayer : AIPlayer
 		{
 			_CurrentState = AIStates.Searching;
 		}
-		row = System.Convert.ToInt32(l.Row);
-		column = System.Convert.ToInt32(l.Column);
+		row = Convert.ToInt32(l.Row);
+		column = Convert.ToInt32(l.Column);
 	}
 	
 	/// <summary>
@@ -74,8 +77,8 @@ public class AIMediumPlayer : AIPlayer
 	/// <param name="column">the generated column</param>
 	private void SearchCoords(ref int row, ref int column)
 	{
-		row = System.Convert.ToInt32(_Random.Next(0, EnemyGrid.Height));
-		column = System.Convert.ToInt32(_Random.Next(0, EnemyGrid.Width));
+		row = Convert.ToInt32(_Random.Next(0, EnemyGrid.Height));
+		column = Convert.ToInt32(_Random.Next(0, EnemyGrid.Width));
 	}
 	
 	/// <summary>

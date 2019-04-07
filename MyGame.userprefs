@@ -5,5 +5,9 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\DeploymentController.cs">
+    <Files>
+      <File FileName="src\DeploymentController.cs" Line="45" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
 </Properties>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
@@ -126,7 +127,7 @@ public class Player : IEnumerable<Ship>
 			return null;
 		}
 		
-		return _Ships.Item(name);
+		return _Ships[name];
 	}
 	
 	/// <summary>
@@ -296,5 +297,10 @@ public class Player : IEnumerable<Ship>
 				}
 			} while (!placementSuccessful);
 		}
+	}
+
+	IEnumerator IEnumerable.GetEnumerator ()
+	{
+		throw new NotImplementedException ();
 	}
 }

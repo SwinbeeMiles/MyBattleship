@@ -55,8 +55,8 @@ static class DeploymentController
     ///     ''' </remarks>
     public static void HandleDeploymentInput()
     {
-        if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
-            AddNewState(GameState.ViewingGameMenu);
+        if (SwinGame.KeyTyped(KeyCo.vk_ESCAPE))
+			GameController.AddNewState(GameState.ViewingGameMenu);
 
         if (SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN))
             _currentDirection = Direction.UpDown;
@@ -64,7 +64,7 @@ static class DeploymentController
             _currentDirection = Direction.LeftRight;
 
         if (SwinGame.KeyTyped(KeyCode.vk_r))
-            HumanPlayer.RandomizeDeployment();
+			GameController.HumanPlayer.RandomizeDeployment();
 
         if (SwinGame.MouseClicked(MouseButton.LeftButton))
         {
@@ -75,7 +75,7 @@ static class DeploymentController
             else
                 DoDeployClick();
 
-            if (HumanPlayer.ReadyToDeploy & IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+			if (ReadyToDeploy & IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
                 EndDeployment();
             else if (IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
                 _currentDirection = Direction.LeftRight;

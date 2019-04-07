@@ -97,13 +97,13 @@ public static class GameController
         // create the players
         switch (_aiSetting)
         {
-            case object _ when AIOption.Medium:
+            case AIOption.Medium:
                 {
                     _ai = new AIMediumPlayer(_theGame);
                     break;
                 }
 
-            case object _ when AIOption.Hard:
+            case AIOption.Hard:
                 {
                     _ai = new AIHardPlayer(_theGame);
                     break;
@@ -188,14 +188,14 @@ public static class GameController
 
         switch (result.Value)
         {
-            case object _ when ResultOfAttack.Destroyed:
+            case ResultOfAttack.Destroyed:
                 {
                     PlayHitSequence(result.Row, result.Column, isHuman);
                     Audio.PlaySoundEffect(GameSound("Sink"));
                     break;
                 }
 
-            case object _ when ResultOfAttack.GameOver:
+            case ResultOfAttack.GameOver:
                 {
                     PlayHitSequence(result.Row, result.Column, isHuman);
                     Audio.PlaySoundEffect(GameSound("Sink"));
@@ -213,19 +213,19 @@ public static class GameController
                     break;
                 }
 
-            case object _ when ResultOfAttack.Hit:
+            case ResultOfAttack.Hit:
                 {
                     PlayHitSequence(result.Row, result.Column, isHuman);
                     break;
                 }
 
-            case object _ when ResultOfAttack.Miss:
+            case ResultOfAttack.Miss:
                 {
                     PlayMissSequence(result.Row, result.Column, isHuman);
                     break;
                 }
 
-            case object _ when ResultOfAttack.ShotAlready:
+            case ResultOfAttack.ShotAlready:
                 {
                     Audio.PlaySoundEffect(GameSound("Error"));
                     break;
@@ -290,14 +290,14 @@ public static class GameController
     {
         switch (result.Value)
         {
-            case object _ when ResultOfAttack.Miss:
+            case ResultOfAttack.Miss:
                 {
                     if (_theGame.Player == ComputerPlayer)
                         AIAttack();
                     break;
                 }
 
-            case object _ when ResultOfAttack.GameOver:
+            case ResultOfAttack.GameOver:
                 {
                     SwitchState(GameState.EndingGame);
                     break;
@@ -320,43 +320,43 @@ public static class GameController
 
         switch (CurrentState)
         {
-            case object _ when GameState.ViewingMainMenu:
+            case GameState.ViewingMainMenu:
                 {
                     HandleMainMenuInput();
                     break;
                 }
 
-            case object _ when GameState.ViewingGameMenu:
+            case GameState.ViewingGameMenu:
                 {
                     HandleGameMenuInput();
                     break;
                 }
 
-            case object _ when GameState.AlteringSettings:
+            case GameState.AlteringSettings:
                 {
                     HandleSetupMenuInput();
                     break;
                 }
 
-            case object _ when GameState.Deploying:
+            case GameState.Deploying:
                 {
                     HandleDeploymentInput();
                     break;
                 }
 
-            case object _ when GameState.Discovering:
+            case GameState.Discovering:
                 {
                     HandleDiscoveryInput();
                     break;
                 }
 
-            case object _ when GameState.EndingGame:
+            case GameState.EndingGame:
                 {
                     HandleEndOfGameInput();
                     break;
                 }
 
-            case object _ when GameState.ViewingHighScores:
+            case GameState.ViewingHighScores:
                 {
                     HandleHighScoreInput();
                     break;
@@ -378,43 +378,43 @@ public static class GameController
 
         switch (CurrentState)
         {
-            case object _ when GameState.ViewingMainMenu:
+            case GameState.ViewingMainMenu:
                 {
                     DrawMainMenu();
                     break;
                 }
 
-            case object _ when GameState.ViewingGameMenu:
+            case GameState.ViewingGameMenu:
                 {
                     DrawGameMenu();
                     break;
                 }
 
-            case object _ when GameState.AlteringSettings:
+            case GameState.AlteringSettings:
                 {
                     DrawSettings();
                     break;
                 }
 
-            case object _ when GameState.Deploying:
+            case GameState.Deploying:
                 {
                     DrawDeployment();
                     break;
                 }
 
-            case object _ when GameState.Discovering:
+            case GameState.Discovering:
                 {
                     DrawDiscovery();
                     break;
                 }
 
-            case object _ when GameState.EndingGame:
+            case GameState.EndingGame:
                 {
                     DrawEndOfGame();
                     break;
                 }
 
-            case object _ when GameState.ViewingHighScores:
+            case GameState.ViewingHighScores:
                 {
                     DrawHighScores();
                     break;

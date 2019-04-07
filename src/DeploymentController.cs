@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -21,31 +21,31 @@ using SwinGameSDK;
 /// ''' </summary>
 static class DeploymentController
 {
-    private const static int SHIPS_TOP = 98;
-    private const static int SHIPS_LEFT = 20;
-    private const static int SHIPS_HEIGHT = 90;
-    private const static int SHIPS_WIDTH = 300;
+    private const int SHIPS_TOP = 98;
+    private const int SHIPS_LEFT = 20;
+    private const int SHIPS_HEIGHT = 90;
+    private const int SHIPS_WIDTH = 300;
 
-    private const static int TOP_BUTTONS_TOP = 72;
-    private const static int TOP_BUTTONS_HEIGHT = 46;
+    private const int TOP_BUTTONS_TOP = 72;
+    private const int TOP_BUTTONS_HEIGHT = 46;
 
-    private const static int PLAY_BUTTON_LEFT = 693;
-    private const static int PLAY_BUTTON_WIDTH = 80;
+    private const int PLAY_BUTTON_LEFT = 693;
+    private const int PLAY_BUTTON_WIDTH = 80;
 
-    private const static int UP_DOWN_BUTTON_LEFT = 410;
-    private const static int LEFT_RIGHT_BUTTON_LEFT = 350;
+    private const int UP_DOWN_BUTTON_LEFT = 410;
+    private const int LEFT_RIGHT_BUTTON_LEFT = 350;
 
-    private const static int RANDOM_BUTTON_LEFT = 547;
-    private const static int RANDOM_BUTTON_WIDTH = 51;
+    private const int RANDOM_BUTTON_LEFT = 547;
+    private const int RANDOM_BUTTON_WIDTH = 51;
 
-    private const static int DIR_BUTTONS_WIDTH = 47;
+    private const int DIR_BUTTONS_WIDTH = 47;
 
-    private const static int TEXT_OFFSET = 5;
+    private const int TEXT_OFFSET = 5;
 
     private static Direction _currentDirection = Direction.UpDown;
     private static ShipName _selectedShip = ShipName.Tug;
 
-    /// <summary>
+    /// 		<summary>
     ///     ''' Handles user input for the Deployment phase of the game.
     ///     ''' </summary>
     ///     ''' <remarks>
@@ -55,15 +55,15 @@ static class DeploymentController
     ///     ''' </remarks>
     public static void HandleDeploymentInput()
     {
-        if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+        if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
             AddNewState(GameState.ViewingGameMenu);
 
-        if (SwinGame.KeyTyped(KeyCode.VK_UP) | SwinGame.KeyTyped(KeyCode.VK_DOWN))
+        if (SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN))
             _currentDirection = Direction.UpDown;
-        if (SwinGame.KeyTyped(KeyCode.VK_LEFT) | SwinGame.KeyTyped(KeyCode.VK_RIGHT))
+        if (SwinGame.KeyTyped(KeyCode.vk_LEFT) | SwinGame.KeyTyped(KeyCode.vk_RIGHT))
             _currentDirection = Direction.LeftRight;
 
-        if (SwinGame.KeyTyped(KeyCode.VK_R))
+        if (SwinGame.KeyTyped(KeyCode.vk_r))
             HumanPlayer.RandomizeDeployment();
 
         if (SwinGame.MouseClicked(MouseButton.LeftButton))
@@ -86,7 +86,7 @@ static class DeploymentController
         }
     }
 
-    /// <summary>
+    /// 		<summary>
     ///     ''' The user has clicked somewhere on the screen, check if its is a deployment and deploy
     ///     ''' the current ship if that is the case.
     ///     ''' </summary>
@@ -123,7 +123,7 @@ static class DeploymentController
         }
     }
 
-    /// <summary>
+    /// 		<summary>
     ///     ''' Draws the deployment screen showing the field and the ships
     ///     ''' that the player can deploy.
     ///     ''' </summary>
@@ -157,7 +157,7 @@ static class DeploymentController
         DrawMessage();
     }
 
-    /// <summary>
+    /// 		<summary>
     ///     ''' Gets the ship that the mouse is currently over in the selection panel.
     ///     ''' </summary>
     ///     ''' <returns>The ship selected or none</returns>

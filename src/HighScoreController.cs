@@ -16,8 +16,8 @@ using SwinGameSDK;
 /// ''' </remarks>
 static class HighScoreController
 {
-    private const static int NAME_WIDTH = 3;
-    private const static int SCORES_LEFT = 490;
+    private const int NAME_WIDTH = 3;
+    private const int SCORES_LEFT = 490;
 
     /// <summary>
     ///     ''' The score structure is used to keep the name and

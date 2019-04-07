@@ -5,18 +5,11 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\DeploymentController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\HighScoreController.cs">
     <Files>
-      <File FileName="src\DeploymentController.cs" Line="45" Column="2" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\Model\Player.cs">
-    <Files>
-      <File FileName="src\MenuController.cs" Line="25" Column="33" />
-      <File FileName="src\HighScoreController.cs" Line="2" Column="19" />
-      <File FileName="src\GameController.cs" Line="405" Column="22" />
-      <File FileName="src\Model\Player.cs" Line="5" Column="23" />
->>>>>>> 2f00eea0cbd73382d4b95b50de4ae0205f329fdb
+      <File FileName="src\DeploymentController.cs" Line="124" Column="21" />
+      <File FileName="src\MenuController.cs" Line="1" Column="1" />
+      <File FileName="src\HighScoreController.cs" Line="20" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

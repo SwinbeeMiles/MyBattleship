@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using SwinGameSDK;
 
 
@@ -132,24 +134,24 @@ public sealed class GameController
 	{
 		if (showAnimation)
 		{
-			AddExplosion(row, column);
+			UtilityFunctions.AddExplosion(row, column);
 		}
 		
-		Audio.PlaySoundEffect(GameSound("Hit"));
+		Audio.PlaySoundEffect(GameResources.GameSound("Hit"));
 		
-		DrawAnimationSequence();
+		UtilityFunctions.DrawAnimationSequence();
 	}
 	
 	private static void PlayMissSequence(int row, int column, bool showAnimation)
 	{
 		if (showAnimation)
 		{
-			AddSplash(row, column);
+			UtilityFunctions.AddSplash(row, column);
 		}
 		
-		Audio.PlaySoundEffect(GameSound("Miss"));
+		Audio.PlaySoundEffect(GameResources.GameSound("Miss"));
 		
-		DrawAnimationSequence();
+		UtilityFunctions.DrawAnimationSequence();
 	}
 	
 	/// <summary>
@@ -167,24 +169,24 @@ public sealed class GameController
 		
 		if (isHuman)
 		{
-			Message = "You " + result.ToString();
+			UtilityFunctions.Message = "You " + result.ToString();
 		}
 		else
 		{
-			Message = "The AI " + result.ToString();
+			UtilityFunctions.Message = "The AI " + result.ToString();
 		}
 		
 		if (result.Value == ResultOfAttack.Destroyed)
 		{
 			PlayHitSequence(System.Convert.ToInt32(result.Row), System.Convert.ToInt32(result.Column), isHuman);
-			Audio.PlaySoundEffect(GameSound("Sink"));
+			Audio.PlaySoundEffect(GameResources.GameSound("Sink"));
 		}
 		else if (result.Value == ResultOfAttack.GameOver)
 		{
 			PlayHitSequence(System.Convert.ToInt32(result.Row), System.Convert.ToInt32(result.Column), isHuman);
-			Audio.PlaySoundEffect(GameSound("Sink"));
+			Audio.PlaySoundEffect(GameResources.GameSound("Sink"));
 			
-			while (Audio.SoundEffectPlaying(GameSound("Sink")))
+			while (Audio.SoundEffectPlaying(GameResources.GameSound("Sink")))
 			{
 				SwinGame.Delay(10);
 				SwinGame.RefreshScreen();
@@ -192,11 +194,11 @@ public sealed class GameController
 			
 			if (HumanPlayer.IsDestroyed)
 			{
-				Audio.PlaySoundEffect(GameSound("Lose"));
+				Audio.PlaySoundEffect(GameResources.GameSound("Lose"));
 			}
 			else
 			{
-				Audio.PlaySoundEffect(GameSound("Winner"));
+				Audio.PlaySoundEffect(GameResources.GameSound("Winner"));
 			}
 		}
 		else if (result.Value == ResultOfAttack.Hit)
@@ -209,7 +211,7 @@ public sealed class GameController
 		}
 		else if (result.Value == ResultOfAttack.ShotAlready)
 		{
-			Audio.PlaySoundEffect(GameSound("Error"));
+			Audio.PlaySoundEffect(GameResources.GameSound("Error"));
 		}
 	}
 	
@@ -296,34 +298,34 @@ public sealed class GameController
 		
 		if (CurrentState == GameState.ViewingMainMenu)
 		{
-			HandleMainMenuInput();
+			MenuController.HandleMainMenuInput();
 		}
 		else if (CurrentState == GameState.ViewingGameMenu)
 		{
-			HandleGameMenuInput();
+			MenuController.HandleGameMenuInput();
 		}
 		else if (CurrentState == GameState.AlteringSettings)
 		{
-			HandleSetupMenuInput();
+			MenuController.HandleSetupMenuInput();
 		}
 		else if (CurrentState == GameState.Deploying)
 		{
-			HandleDeploymentInput();
+			DeploymentController.HandleDeploymentInput();
 		}
 		else if (CurrentState == GameState.Discovering)
 		{
-			HandleDiscoveryInput();
+			DiscoveryController.HandleDiscoveryInput();
 		}
 		else if (CurrentState == GameState.EndingGame)
 		{
-			HandleEndOfGameInput();
+			EndingGameController.HandleEndOfGameInput();
 		}
 		else if (CurrentState == GameState.ViewingHighScores)
 		{
-			HandleHighScoreInput();
+			HighScoreController.HandleHighScoreInput();
 		}
 		
-		UpdateAnimations();
+		UtilityFunctions.UpdateAnimations();
 	}
 	
 	/// <summary>
@@ -334,38 +336,38 @@ public sealed class GameController
 	/// </remarks>
 	public static void DrawScreen()
 	{
-		DrawBackground();
+		UtilityFunctions.DrawBackground();
 		
 		if (CurrentState == GameState.ViewingMainMenu)
 		{
-			DrawMainMenu();
+			MenuController.DrawMainMenu();
 		}
 		else if (CurrentState == GameState.ViewingGameMenu)
 		{
-			DrawGameMenu();
+			MenuController.DrawGameMenu();
 		}
 		else if (CurrentState == GameState.AlteringSettings)
 		{
-			DrawSettings();
+			MenuController.DrawSettings();
 		}
 		else if (CurrentState == GameState.Deploying)
 		{
-			DrawDeployment();
+			DeploymentController.DrawDeployment();
 		}
 		else if (CurrentState == GameState.Discovering)
 		{
-			DrawDiscovery();
+			DiscoveryController.DrawDiscovery();
 		}
 		else if (CurrentState == GameState.EndingGame)
 		{
-			DrawEndOfGame();
+			EndingGameController.DrawEndOfGame();
 		}
 		else if (CurrentState == GameState.ViewingHighScores)
 		{
-			DrawHighScores();
+			HighScoreController.DrawHighScores();
 		}
 		
-		DrawAnimations();
+		UtilityFunctions.DrawAnimations();
 		
 		SwinGame.RefreshScreen();
 	}
@@ -378,7 +380,7 @@ public sealed class GameController
 	public static void AddNewState(GameState state)
 	{
 		_state.Push(state);
-		Message = "";
+		UtilityFunctions.Message = "";
 	}
 	
 	/// <summary>

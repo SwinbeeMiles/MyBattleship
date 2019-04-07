@@ -140,13 +140,13 @@ public class SeaGrid : ISeaGrid
 	{
 		try
 		{
-			int size = System.Convert.ToInt32(newShip.Size);
+			int size = Convert.ToInt32(newShip.Size);
 			int currentRow = row;
 			int currentCol = col;
 			int dRow = 0;
 			int dCol = 0;
 			
-			if (direction == direction.LeftRight)
+			if (direction == Direction.LeftRight)
 			{
 				dRow = 0;
 				dCol = 1;

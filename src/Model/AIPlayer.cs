@@ -114,15 +114,15 @@ public abstract class AIPlayer : Player
 		AttackResult result = default(AttackResult);
 		int row = 0;
 		int column = 0;
-		
+
 		do //keep hitting until a miss
 		{
-			Delay();
-			
-			GenerateCoords(ref row, ref column); //generate coordinates for shot
-			result = _game.Shoot(row, column); //take shot
-			ProcessShot(row, column, result);
-		} while (result.Value != ResultOfAttack.Miss && result.Value != ResultOfAttack.GameOver && !SwinGame.WindowCloseRequested);
+			Delay ();
+
+			GenerateCoords (ref row, ref column); //generate coordinates for shot
+			result = _game.Shoot (row, column); //take shot
+			ProcessShot (row, column, result);
+		} while (result.Value != ResultOfAttack.Miss && result.Value != ResultOfAttack.GameOver && SwinGame.WindowCloseRequested());
 		
 		return result;
 	}
@@ -136,7 +136,7 @@ public abstract class AIPlayer : Player
 		for (i = 0; i <= 150; i++)
 		{
 			//Dont delay if window is closed
-			if (SwinGame.WindowCloseRequested)
+			if (SwinGame.WindowCloseRequested())
 			{
 				return;
 			}

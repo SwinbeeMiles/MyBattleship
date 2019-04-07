@@ -1,3 +1,6 @@
+using SwinGameSDK;
+using System.Collections.Generic;
+
 /// <summary>
 /// This includes a number of utility methods for
 /// drawing and interacting with the Mouse.
@@ -16,7 +19,7 @@ sealed class UtilityFunctions
 	public const int CELL_GAP = 2;
 	
 	public const int SHIP_GAP = 3;
-	
+
 	private readonly static Color SMALL_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
 	private readonly static Color SMALL_SHIP = Color.Gray;
 	private readonly static Color SMALL_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
@@ -212,7 +215,7 @@ sealed class UtilityFunctions
 			
 			if (!small)
 			{
-				SwinGame.DrawBitmap(GameImage(shipName), colLeft, rowTop);
+				SwinGame.DrawBitmap(GameResources.GameImage(shipName), colLeft, rowTop);
 			}
 			else
 			{
@@ -246,7 +249,7 @@ sealed class UtilityFunctions
 	/// </summary>
 	public static void DrawMessage()
 	{
-		SwinGame.DrawText(Message, MESSAGE_COLOR, GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
+		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
 	}
 	
 	/// <summary>
@@ -255,24 +258,24 @@ sealed class UtilityFunctions
 	public static void DrawBackground()
 	{
 		
-		if ((((CurrentState == GameState.ViewingMainMenu) || (CurrentState == GameState.ViewingGameMenu)) || (CurrentState == GameState.AlteringSettings)) || (CurrentState == GameState.ViewingHighScores))
+		if ((((GameController.CurrentState == GameState.ViewingMainMenu) || (GameController.CurrentState == GameState.ViewingGameMenu)) || (GameController.CurrentState == GameState.AlteringSettings)) || (GameController.CurrentState == GameState.ViewingHighScores))
 		{
-			SwinGame.DrawBitmap(GameImage("Menu"), 0, 0);
+			SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
 		}
-		else if ((CurrentState == GameState.Discovering) || (CurrentState == GameState.EndingGame))
+		else if ((GameController.CurrentState == GameState.Discovering) || (GameController.CurrentState == GameState.EndingGame))
 		{
-			SwinGame.DrawBitmap(GameImage("Discovery"), 0, 0);
+			SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
 		}
-		else if (CurrentState == GameState.Deploying)
+		else if (GameController.CurrentState == GameState.Deploying)
 		{
-			SwinGame.DrawBitmap(GameImage("Deploy"), 0, 0);
+			SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
 		}
 		else
 		{
 			SwinGame.ClearScreen();
 		}
 		
-		SwinGame.DrawFramerate(675, 585, GameFont("CourierSmall"));
+		SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));
 	}
 	
 	public static void AddExplosion(int row, int col)
@@ -292,7 +295,7 @@ sealed class UtilityFunctions
 		Sprite s = default(Sprite);
 		Bitmap imgObj = default(Bitmap);
 		
-		imgObj = GameImage(image);
+		imgObj = GameResources.GameImage(image);
 		imgObj.SetCellDetails(40, 40, 3, 3, 7);
 		
 		AnimationScript animation = default(AnimationScript);
@@ -312,7 +315,7 @@ sealed class UtilityFunctions
 		foreach (Sprite s in _Animations)
 		{
 			SwinGame.UpdateSprite(s);
-			if (s.animationHasEnded)
+			if (s.AnimationHasEnded)
 			{
 				ended.Add(s);
 			}
@@ -339,7 +342,7 @@ sealed class UtilityFunctions
 		for (i = 1; i <= ANIMATION_CELLS * FRAMES_PER_CELL; i++)
 		{
 			UpdateAnimations();
-			DrawScreen();
+			GameController.DrawScreen();
 		}
 	}
 }

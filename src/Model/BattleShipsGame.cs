@@ -1,3 +1,5 @@
+using System;
+
 /// <summary>
 /// The BattleShipsGame controls a big part of the game. It will add the two players
 /// to the game and make sure that both players ships are all deployed before starting the game.
@@ -24,7 +26,7 @@ public class BattleShipsGame
 	public AttackCompletedHandler AttackCompletedEvent;
 	public event AttackCompletedHandler AttackCompleted;
 	
-	private Player[] _players = new Player[3];
+	private readonly Player[] _players = new Player[3];
 	private int _playerIndex = 0;
 	
 	/// <summary>
@@ -83,7 +85,7 @@ public class BattleShipsGame
 	public AttackResult Shoot(int row, int col)
 	{
 		AttackResult newAttack = default(AttackResult);
-		int otherPlayer = System.Convert.ToInt32((_playerIndex + 1) % 2);
+		int otherPlayer = Convert.ToInt32((_playerIndex + 1) % 2);
 		
 		newAttack = Player.Shoot(row, col);
 		

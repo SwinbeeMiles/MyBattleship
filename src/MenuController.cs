@@ -7,7 +7,7 @@ using SwinGameSDK;
 /// menu and the settings m,enu.
 /// </summary>
 
-sealed class MenuController
+static class MenuController
 {
 
 	/// <summary>

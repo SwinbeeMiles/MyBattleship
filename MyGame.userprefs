@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{871B5A90-103A-46A5-BBB9-07C02B9851D1}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Mac|x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Windows|x86" />
   <MonoDevelop.Ide.ItemProperties.MyGame PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -8,8 +8,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="src\DeploymentController.cs">
     <Files>
       <File FileName="src\GameMain.cs" Line="29" Column="2" />
-      <File FileName="src\Model\Player.cs" Line="236" Column="48" />
-      <File FileName="src\DeploymentController.cs" Line="43" Column="19" />
+      <File FileName="src\DeploymentController.cs" Line="24" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

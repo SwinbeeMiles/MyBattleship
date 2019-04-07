@@ -9,7 +9,7 @@ using System.Collections.Generic;
 /// <remarks>
 /// Data is saved to a file.
 /// </remarks>
-sealed class HighScoreController
+static class HighScoreController
 {
 	private const int NAME_WIDTH = 3;
 	private const int SCORES_LEFT = 490;

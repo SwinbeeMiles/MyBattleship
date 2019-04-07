@@ -185,7 +185,7 @@ public class Player : IEnumerable<Ship>
 	/// <returns>A Ship enumerator</returns>
 	public IEnumerator<Ship> GetEnumerator()
 	{
-		return this.GetShipEnumerator();
+		return GetShipEnumerator();
 	}
 	
 	public IEnumerator<Ship> GetShipEnumerator()
@@ -205,7 +205,7 @@ public class Player : IEnumerable<Ship>
 	/// <returns>A Ship enumerator</returns>
 	IEnumerator<Ship> IEnumerable<Ship>.GetEnumerator()
 	{
-		return this.GetEnumerator1();
+		return GetEnumerator1();
 	}
 	
 	public IEnumerator<Ship> GetEnumerator1()
@@ -270,9 +270,9 @@ public class Player : IEnumerable<Ship>
 			//generate random position until the ship can be placed
 			do
 			{
-				int dir = System.Convert.ToInt32(_Random.Next(2));
-				int x = System.Convert.ToInt32(_Random.Next(0, 11));
-				int y = System.Convert.ToInt32(_Random.Next(0, 11));
+				int dir = Convert.ToInt32(_Random.Next(2));
+				int x = Convert.ToInt32(_Random.Next(0, 11));
+				int y = Convert.ToInt32(_Random.Next(0, 11));
 				
 				
 				if (dir == 0)

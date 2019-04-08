@@ -22,7 +22,7 @@ public class SeaGrid : ISeaGrid
 	/// <summary>
 	/// The sea grid has changed and should be redrawn.
 	/// </summary>
-	public event ISeaGrid.EventHandler Changed;
+	public event EventHandler Changed;
 	
 	/// <summary>
 	/// The width of the sea grid.
@@ -67,12 +67,8 @@ public class SeaGrid : ISeaGrid
 	/// <param name="x">x coordinate of the tile</param>
 	/// <param name="y">y coordiante of the tile</param>
 	/// <returns></returns>
-	public TileView this[int x, int y]
-	{
-		get
-		{
-			return _GameTiles[x, y].View;
-		}
+	public TileView Item(int x, int y) {
+		return _GameTiles[x, y].View;	
 	}
 	
 	/// <summary>
@@ -201,7 +197,7 @@ public class SeaGrid : ISeaGrid
 			//tile is already hit
 			if (_GameTiles[row, col].Shot)
 			{
-				return new AttackResult(ResultOfAttack.ShotAlready, "have already attacked [" + System.Convert.ToString(col) + "," + System.Convert.ToString(row) + "]!", row, col);
+				return new AttackResult(ResultOfAttack.ShotAlready, "have already attacked [" + Convert.ToString(col) + "," + Convert.ToString(row) + "]!", row, col);
 			}
 			
 			_GameTiles[row, col].Shoot();

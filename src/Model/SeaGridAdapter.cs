@@ -37,27 +37,24 @@ public class SeaGridAdapter : ISeaGrid
 	/// <param name="x">tile x coordinate</param>
 	/// <param name="y">tile y coordinate</param>
 	/// <returns>a tile, either what it actually is, or if it was a ship then return a sea tile</returns>
-	public TileView this[int x, int y]
+	public TileView Item(int x, int y) 
 	{
-		get
+		TileView result = _MyGrid.Item(x, y);
+		
+		if (result == TileView.Ship)
 		{
-			TileView result = _MyGrid[x, y];
-			
-			if (result == TileView.Ship)
-			{
-				return TileView.Sea;
-			}
-			else
-			{
-				return result;
-			}
+			return TileView.Sea;
+		}
+		else
+		{
+			return result;
 		}
 	}
 	
 	/// <summary>
 	/// Indicates that the grid has been changed
 	/// </summary>
-	public event ISeaGrid.EventHandler Changed;
+	public event EventHandler Changed;
 	
 	/// <summary>
 	/// Get the width of a tile

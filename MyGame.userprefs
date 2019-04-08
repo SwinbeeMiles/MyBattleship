@@ -5,12 +5,11 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\DiscoveryController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\Model\ISeaGrid.cs">
     <Files>
-      <File FileName="src\GameResources.cs" Line="98" Column="1" />
-      <File FileName="src\Model\SeaGridAdapter.cs" Line="60" Column="24" />
-      <File FileName="src\DeploymentController.cs" Line="103" Column="71" />
-      <File FileName="src\DiscoveryController.cs" Line="62" Column="115" />
+      <File FileName="src\Model\SeaGrid.cs" Line="25" Column="24" />
+      <File FileName="src\Model\SeaGridAdapter.cs" Line="45" Column="4" />
+      <File FileName="src\Model\ISeaGrid.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

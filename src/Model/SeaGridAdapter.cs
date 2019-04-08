@@ -41,7 +41,7 @@ public class SeaGridAdapter : ISeaGrid
 	{
 		get
 		{
-			TileView result = _MyGrid.Item(x, y);
+			TileView result = _MyGrid[x, y];
 			
 			if (result == TileView.Ship)
 			{

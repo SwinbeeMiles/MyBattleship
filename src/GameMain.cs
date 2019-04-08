@@ -11,6 +11,11 @@ namespace MyGame
             SwinGame.OpenGraphicsWindow("GameMain", 800, 600);
             SwinGame.ShowSwinGameSplashScreen();
             
+			//Load Resources
+			GameResources.LoadResources();
+
+			SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
+
             //Run the game loop
             while(false == SwinGame.WindowCloseRequested())
             {
@@ -23,7 +28,14 @@ namespace MyGame
                 
                 //Draw onto the screen
                 SwinGame.RefreshScreen(60);
+
+				GameController.HandleUserInput ();
+				GameController.DrawScreen ();
             }
+
+			SwinGame.StopMusic ();
+
+			GameResources.FreeResources ();
         }
     }
 }

@@ -77,7 +77,6 @@
     <Compile Include="src\DiscoveryController.cs" />
     <Compile Include="src\EndingGameController.cs" />
     <Compile Include="src\GameController.cs" />
-    <Compile Include="src\GameLogic.cs" />
     <Compile Include="src\GameResources.cs" />
     <Compile Include="src\GameState.cs" />
     <Compile Include="src\HighScoreController.cs" />

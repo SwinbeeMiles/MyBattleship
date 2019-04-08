@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug-Windows</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -72,7 +71,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\GameMain.cs" />
+    <Compile Include="src\GameLogic.cs" />
     <Compile Include="src\DeploymentController.cs" />
     <Compile Include="src\DiscoveryController.cs" />
     <Compile Include="src\EndingGameController.cs" />
@@ -188,6 +187,40 @@
     <WinLibraryFiles Include="lib\win\smpeg.dll" />
     <WinLibraryFiles Include="lib\win\swingame.rc" />
     <WinLibraryFiles Include="lib\win\zlib1.dll" />
+    <None Include="Resources\sounds\hit.wav" />
+    <None Include="Resources\sounds\horrordrone.mp3" />
+    <None Include="Resources\sounds\lose.wav" />
+    <None Include="Resources\sounds\sink.wav" />
+    <None Include="Resources\sounds\watershot.wav" />
+    <None Include="Resources\sounds\winner.wav" />
+    <None Include="Resources\images\.DS_Store" />
+    <None Include="Resources\images\deploy.jpg" />
+    <None Include="Resources\images\deploy_button_hl.png" />
+    <None Include="Resources\images\deploy_dir_button_horiz.png" />
+    <None Include="Resources\images\deploy_dir_button_vert.png" />
+    <None Include="Resources\images\deploy_play_button.png" />
+    <None Include="Resources\images\deploy_randomize_button.png" />
+    <None Include="Resources\images\discover.jpg" />
+    <None Include="Resources\images\explosion.png" />
+    <None Include="Resources\images\loader_empty.png" />
+    <None Include="Resources\images\loader_full.png" />
+    <None Include="Resources\images\main_page.jpg" />
+    <None Include="Resources\images\ship_deploy_horiz_1.png" />
+    <None Include="Resources\images\ship_deploy_horiz_2.png" />
+    <None Include="Resources\images\ship_deploy_horiz_3.png" />
+    <None Include="Resources\images\ship_deploy_horiz_4.png" />
+    <None Include="Resources\images\ship_deploy_horiz_5.png" />
+    <None Include="Resources\images\ship_deploy_vert_1.png" />
+    <None Include="Resources\images\ship_deploy_vert_2.png" />
+    <None Include="Resources\images\ship_deploy_vert_3.png" />
+    <None Include="Resources\images\ship_deploy_vert_4.png" />
+    <None Include="Resources\images\ship_deploy_vert_5.png" />
+    <None Include="Resources\images\splash.png" />
+    <None Include="Resources\images\SplashBack.png" />
+    <None Include="Resources\images\SwinGameAni.jpg" />
+    <None Include="Resources\fonts\ffaccess.ttf" />
+    <None Include="Resources\animations\.DS_Store" />
+    <None Include="Resources\animations\splash.txt" />
   </ItemGroup>
   <Target Name="CopyFiles">
     <Copy SourceFiles="@(MacLibraryFiles)" DestinationFolder="$(OutDir)" />

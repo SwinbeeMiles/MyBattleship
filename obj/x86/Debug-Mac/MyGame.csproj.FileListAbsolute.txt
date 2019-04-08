@@ -1,5 +1,3 @@
-C:\Users\TWJ\Documents\GitHub\MyBattleship\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache
-C:\Users\maxxi\Documents\GitHub\MyBattleship\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache
 C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\Resources\animations\startup.txt
 C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\Resources\bundles\FileDialog.txt
 C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\Resources\bundles\splash.txt
@@ -21,6 +19,7 @@ C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\Resources\sounds\Swin
 C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\Resources\SwinGame.icns
 C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\Resources\SwinGame.ico
 C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\MyGame.exe
+C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\MyGame.pdb
 C:\Users\100083933\Documents\GitHub\MyBattleship\bin\Debug\SwinGame.dll
-C:\Users\100083933\Documents\GitHub\MyBattleship\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache
-C:\Users\100083933\Documents\GitHub\MyBattleship\obj\x86\Debug-Windows\MyGame.exe
+C:\Users\100083933\Documents\GitHub\MyBattleship\obj\x86\Debug-Mac\MyGame.exe
+C:\Users\100083933\Documents\GitHub\MyBattleship\obj\x86\Debug-Mac\MyGame.pdb

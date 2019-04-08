@@ -24,9 +24,11 @@ public class SeaGridAdapter : ISeaGrid
 	/// </summary>
 	/// <param name="sender">the object that caused the change</param>
 	/// <param name="e">what needs to be redrawn</param>
-	private void MyGrid_Changed(object sender, EventArgs e)
+	private void MyGrid_Changed (object sender, EventArgs e)
 	{
-		Changed(this, e);
+		if (Changed != null) {
+			Changed (this, e);
+		}
 	}
 	
 #region ISeaGrid Members

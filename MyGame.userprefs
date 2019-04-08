@@ -5,11 +5,9 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\UtilityFunctions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\GameResources.cs">
     <Files>
-      <File FileName="src\UtilityFunctions.cs" Line="292" Column="2" />
-      <File FileName="src\GameController.cs" Line="13" Column="31" />
-      <File FileName="src\HighScoreController.cs" Line="43" Column="2" />
+      <File FileName="src\GameResources.cs" Line="68" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

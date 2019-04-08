@@ -7,13 +7,8 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="src\MenuController.cs">
     <Files>
-      <File FileName="src\DeploymentController.cs" Line="81" Column="57" />
-      <File FileName="src\GameController.cs" Line="359" Column="46" />
-      <File FileName="src\DiscoveryController.cs" Line="38" Column="2" />
-      <File FileName="src\Model\Player.cs" Line="11" Column="2" />
-      <File FileName="src\Model\AIHardPlayer.cs" Line="1" Column="1" />
+      <File FileName="src\MenuController.cs" Line="37" Column="45" />
       <File FileName="src\HighScoreController.cs" Line="19" Column="18" />
-      <File FileName="src\MenuController.cs" Line="36" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

@@ -16,7 +16,7 @@ namespace MyGame
 			SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
 
             //Run the game loop
-			while(false == SwinGame.WindowCloseRequested() || GameController.CurrentState != GameState.Quitting)
+			while(!(true == SwinGame.WindowCloseRequested() || GameController.CurrentState == GameState.Quitting))
 			{
 
 				GameController.HandleUserInput ();

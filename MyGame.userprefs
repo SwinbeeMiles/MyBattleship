@@ -5,14 +5,13 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\GameMain.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\Model\BattleShipsGame.cs">
     <Files>
-      <File FileName="src\GameMain.cs" Line="3" Column="1" />
-      <File FileName="src\GameResources.cs" Line="163" Column="61" />
-      <File FileName="src\GameController.cs" Line="6" Column="1" />
-      <File FileName="src\DeploymentController.cs" Line="4" Column="14" />
-      <File FileName="src\DiscoveryController.cs" Line="4" Column="14" />
-      <File FileName="src\EndingGameController.cs" Line="4" Column="14" />
+      <File FileName="src\UtilityFunctions.cs" Line="218" Column="92" />
+      <File FileName="src\GameController.cs" Line="356" Column="2" />
+      <File FileName="src\DeploymentController.cs" Line="160" Column="20" />
+      <File FileName="src\DiscoveryController.cs" Line="55" Column="21" />
+      <File FileName="src\Model\BattleShipsGame.cs" Line="103" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

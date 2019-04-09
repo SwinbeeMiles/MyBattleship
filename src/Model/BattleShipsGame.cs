@@ -23,7 +23,7 @@ public class BattleShipsGame
 	/// <remarks>
 	/// This is used by the UI to play sound effects etc.
 	/// </remarks>
-	public AttackCompletedHandler AttackCompletedEvent;
+
 	public event AttackCompletedHandler AttackCompleted;
 	
 	private readonly Player[] _players = new Player[3];
@@ -95,8 +95,8 @@ public class BattleShipsGame
 			newAttack = new AttackResult(ResultOfAttack.GameOver, newAttack.Ship, newAttack.Text, row, col);
 		}
 		
-		if (AttackCompletedEvent != null)
-			AttackCompletedEvent(this, newAttack);
+
+		AttackCompleted(this, newAttack);
 		
 		//change player if the last hit was a miss
 		if (newAttack.Value == ResultOfAttack.Miss)

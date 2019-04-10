@@ -6,9 +6,17 @@ using System;
 /// </summary>
 public interface ISeaGrid
 {
-	
+
+	/// <summary>
+	/// Gets the width.
+	/// </summary>
+	/// <value>The width.</value>
 	int Width {get;}
-	
+
+	/// <summary>
+	/// Gets the height.
+	/// </summary>
+	/// <value>The height.</value>
 	int Height {get;}
 
 	/// <summary>

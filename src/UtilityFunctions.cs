@@ -237,11 +237,21 @@ static class UtilityFunctions
 		SwinGame.DrawFramerate (675, 585, GameResources.GameFont ("CourierSmall"));
 	}
 
+	/// <summary>
+	/// Adds the explosion animation at the given position.
+	/// </summary>
+	/// <param name="row">Row.</param>
+	/// <param name="col">Col.</param>
 	public static void AddExplosion (int row, int col)
 	{
 		AddAnimation (row, col, "Splash");
 	}
 
+	/// <summary>
+	/// Adds the splash animation at the given position.
+	/// </summary>
+	/// <param name="row">Row.</param>
+	/// <param name="col">Col.</param>
 	public static void AddSplash (int row, int col)
 	{
 		AddAnimation (row, col, "Splash");
@@ -249,6 +259,12 @@ static class UtilityFunctions
 
 	private static List<Sprite> _Animations = new List<Sprite> ();
 
+	/// <summary>
+	/// Adds a specificed animation to a given position.
+	/// </summary>
+	/// <param name="row">Row.</param>
+	/// <param name="col">Col.</param>
+	/// <param name="image">Image.</param>
 	private static void AddAnimation (int row, int col, string image)
 	{
 		Sprite s = default (Sprite);
@@ -268,6 +284,9 @@ static class UtilityFunctions
 		_Animations.Add (s);
 	}
 
+	/// <summary>
+	/// Updates the animation that has been specified on a select tile.
+	/// </summary>
 	public static void UpdateAnimations ()
 	{
 		List<Sprite> ended = new List<Sprite> ();
@@ -284,6 +303,9 @@ static class UtilityFunctions
 		}
 	}
 
+	/// <summary>
+	/// Draws the animation that that had been specificed on a select tile.
+	/// </summary>
 	public static void DrawAnimations ()
 	{
 		foreach (Sprite s in _Animations) {
@@ -291,6 +313,9 @@ static class UtilityFunctions
 		}
 	}
 
+	/// <summary>
+	/// Draws the the animation sequence that has been specified on a select tile.
+	/// </summary>
 	public static void DrawAnimationSequence ()
 	{
 		int i = 0;

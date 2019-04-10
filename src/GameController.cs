@@ -58,7 +58,10 @@ public sealed class GameController
 			return _ai;
 		}
 	}
-	
+
+	/// <summary>
+	/// Initializes the state that the player is inhabiting in the main menu.
+	/// </summary>
 	static GameController()
 	{
 		//bottom state will be quitting. If player exits main menu then the game is over
@@ -129,7 +132,13 @@ public sealed class GameController
 		DrawScreen();
 		SwinGame.RefreshScreen();
 	}
-	
+
+	/// <summary>
+	/// Plays the corresponding animation sequence and sound if an explosion animation was carried out.
+	/// </summary>
+	/// <param name="row">Row.</param>
+	/// <param name="column">Column.</param>
+	/// <param name="showAnimation">If set to <c>true</c> show animation.</param>
 	private static void PlayHitSequence(int row, int column, bool showAnimation)
 	{
 		if (showAnimation)
@@ -141,7 +150,13 @@ public sealed class GameController
 		
 		UtilityFunctions.DrawAnimationSequence();
 	}
-	
+
+	/// <summary>
+	/// Plays the corresponding animation sequence and sound if a splash animation was carried out.
+	/// </summary>
+	/// <param name="row">Row.</param>
+	/// <param name="column">Column.</param>
+	/// <param name="showAnimation">If set to <c>true</c> show animation.</param>
 	private static void PlayMissSequence(int row, int column, bool showAnimation)
 	{
 		if (showAnimation)

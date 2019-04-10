@@ -1,10 +1,16 @@
 using SwinGameSDK;
 using System.Collections.Generic;
 
-
+/// <summary>
+/// The Resources Class stores all of the Games Media Resources, such as Images, Fonts
+/// Sounds, Music.
+/// </summary>
 public static class GameResources
 {
 
+	/// <summary>
+	/// Loads the fonts.
+	/// </summary>
 	private static void LoadFonts ()
 	{
 		NewFont ("ArialLarge", "arial.ttf", 80);
@@ -13,6 +19,9 @@ public static class GameResources
 		NewFont ("Menu", "ffaccess.ttf", 8);
 	}
 
+	/// <summary>
+	/// Loads the images.
+	/// </summary>
 	private static void LoadImages ()
 	{
 		//Backgrounds
@@ -40,6 +49,9 @@ public static class GameResources
 
 	}
 
+	/// <summary>
+	/// Loads the sounds.
+	/// </summary>
 	private static void LoadSounds ()
 	{
 		NewSound ("Error", "error.wav");
@@ -51,6 +63,9 @@ public static class GameResources
 		NewSound ("Lose", "lose.wav");
 	}
 
+	/// <summary>
+	/// Loads the music.
+	/// </summary>
 	private static void LoadMusic ()
 	{
 		NewMusic ("Background", "horrordrone.mp3");
@@ -113,10 +128,8 @@ public static class GameResources
 	private static SoundEffect _StartSound;
 
 	/// <summary>
-	/// The Resources Class stores all of the Games Media Resources, such as Images, Fonts
-	/// Sounds, Music.
+	/// Loads the resources.
 	/// </summary>
-
 	public static void LoadResources ()
 	{
 		int width = 0;
@@ -151,6 +164,9 @@ public static class GameResources
 		EndLoadingScreen (width, height);
 	}
 
+	/// <summary>
+	/// Shows the loading screen.
+	/// </summary>
 	private static void ShowLoadingScreen ()
 	{
 		_Background = SwinGame.LoadBitmap (SwinGame.PathToResource ("SplashBack.png", ResourceKind.BitmapResource));
@@ -168,6 +184,9 @@ public static class GameResources
 		PlaySwinGameIntro ();
 	}
 
+	/// <summary>
+	/// Plays the SwinGame intro.
+	/// </summary>
 	private static void PlaySwinGameIntro ()
 	{
 		const int ANI_X = 143;
@@ -193,6 +212,11 @@ public static class GameResources
 
 	}
 
+	/// <summary>
+	/// Shows the message.
+	/// </summary>
+	/// <param name="message">Message.</param>
+	/// <param name="number">Number.</param>
 	private static void ShowMessage (string message, int number)
 	{
 		const int TX = 310;
@@ -215,6 +239,11 @@ public static class GameResources
 		SwinGame.ProcessEvents ();
 	}
 
+	/// <summary>
+	/// Ends the loading screen.
+	/// </summary>
+	/// <param name="width">Width.</param>
+	/// <param name="height">Height.</param>
 	private static void EndLoadingScreen (int width, int height)
 	{
 		SwinGame.ProcessEvents ();
@@ -230,36 +259,72 @@ public static class GameResources
 		SwinGame.ChangeScreenSize (width, height);
 	}
 
+	/// <summary>
+	/// Loads custom font from the resource folder.
+	/// </summary>
+	/// <param name="fontName">Font name.</param>
+	/// <param name="filename">Filename.</param>
+	/// <param name="size">Size.</param>
 	private static void NewFont (string fontName, string filename, int size)
 	{
 		_Fonts.Add (fontName, SwinGame.LoadFont (SwinGame.PathToResource (filename, ResourceKind.FontResource), size));
 	}
 
+	/// <summary>
+	/// Loads custom images from the resource folder.
+	/// </summary>
+	/// <param name="imageName">Image name.</param>
+	/// <param name="filename">Filename.</param>
 	private static void NewImage (string imageName, string filename)
 	{
 		_Images.Add (imageName, SwinGame.LoadBitmap (SwinGame.PathToResource (filename, ResourceKind.BitmapResource)));
 	}
 
+	/// <summary>
+	/// Loads a custom type of images from the resource folder.
+	/// </summary>
+	/// <param name="imageName">Image name.</param>
+	/// <param name="fileName">File name.</param>
+	/// <param name="transColor">Trans color.</param>
 	private static void NewTransparentColorImage (string imageName, string fileName, Color transColor)
 	{
 		_Images.Add (imageName, SwinGame.LoadBitmap (SwinGame.PathToResource (fileName, ResourceKind.BitmapResource), true, transColor));
 	}
 
+	/// <summary>
+	/// Loads a custom type of images from the resource folder. (take note)
+	/// </summary>
+	/// <param name="imageName">Image name.</param>
+	/// <param name="fileName">File name.</param>
+	/// <param name="transColor">Trans color.</param>
 	private static void NewTransparentColourImage (string imageName, string fileName, Color transColor)
 	{
 		NewTransparentColorImage (imageName, fileName, transColor);
 	}
 
+	/// <summary>
+	/// Loads custom sound files from the resource folder.
+	/// </summary>
+	/// <param name="soundName">Sound name.</param>
+	/// <param name="filename">Filename.</param>
 	private static void NewSound (string soundName, string filename)
 	{
 		_Sounds.Add (soundName, Audio.LoadSoundEffect (SwinGame.PathToResource (filename, ResourceKind.SoundResource)));
 	}
 
+	/// <summary>
+	/// Loads custom music files from the resource folder.
+	/// </summary>
+	/// <param name="musicName">Music name.</param>
+	/// <param name="filename">Filename.</param>
 	private static void NewMusic (string musicName, string filename)
 	{
 		_Music.Add (musicName, Audio.LoadMusic (SwinGame.PathToResource (filename, ResourceKind.SoundResource)));
 	}
 
+	/// <summary>
+	/// Frees up the font from the process.
+	/// </summary>
 	private static void FreeFonts ()
 	{
 		Font obj = default (Font);
@@ -269,6 +334,9 @@ public static class GameResources
 		}
 	}
 
+	/// <summary>
+	/// Frees up the image used from the process.
+	/// </summary>
 	private static void FreeImages ()
 	{
 		Bitmap obj = default (Bitmap);
@@ -278,6 +346,9 @@ public static class GameResources
 		}
 	}
 
+	/// <summary>
+	/// Frees up the sound file used from the process.
+	/// </summary>
 	private static void FreeSounds ()
 	{
 		SoundEffect obj = default (SoundEffect);
@@ -287,6 +358,9 @@ public static class GameResources
 		}
 	}
 
+	/// <summary>
+	/// Frees up the music file used from the process.
+	/// </summary>
 	private static void FreeMusic ()
 	{
 		Music obj = default (Music);
@@ -296,6 +370,9 @@ public static class GameResources
 		}
 	}
 
+	/// <summary>
+	/// Frees up the loaded assets from the process.
+	/// </summary>
 	public static void FreeResources ()
 	{
 		FreeFonts ();

@@ -45,7 +45,12 @@ public class AIHardPlayer : AIPlayer
 				return _Source;
 			}
 		}
-		
+
+		/// <summary>
+		/// Initializes a new instance of the Target class.
+		/// </summary>
+		/// <param name="shootat">Shootat.</param>
+		/// <param name="source">Source.</param>
 		internal Target(Location shootat, Location source)
 		{
 			_ShotAt = shootat;
@@ -104,7 +109,11 @@ public class AIHardPlayer : AIPlayer
 	private Stack<Target> _Targets = new Stack<Target>();
 	private List<Target> _LastHit = new List<Target>();
 	private Target _CurrentTarget;
-	
+
+	/// <summary>
+	/// Initializes a new instance of the AIHardPlayer class.
+	/// </summary>
+	/// <param name="game">Game.</param>
 	public AIHardPlayer(BattleShipsGame game) : base(game)
 	{
 	}

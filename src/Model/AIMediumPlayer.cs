@@ -20,7 +20,11 @@ public class AIMediumPlayer : AIPlayer
 	
 	private AIStates _CurrentState = AIStates.Searching;
 	private readonly Stack<Location> _Targets = new Stack<Location>();
-	
+
+	/// <summary>
+	/// Initializes a new instance of the AIMediumPlayer class.
+	/// </summary>
+	/// <param name="controller">Controller.</param>
 	public AIMediumPlayer(BattleShipsGame controller) : base(controller)
 	{
 	}

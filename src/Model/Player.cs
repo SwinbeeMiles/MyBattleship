@@ -47,7 +47,11 @@ public class Player : IEnumerable<Ship>
 			_enemyGrid = value;
 		}
 	}
-	
+
+	/// <summary>
+	/// Initializes a new instance of the Player class.
+	/// </summary>
+	/// <param name="controller">Controller.</param>
 	public Player(BattleShipsGame controller)
 	{
 		// VBConversions Note: Non-static class variable initialization is below.  Class variables cannot be initially assigned non-static values in C#.
@@ -103,7 +107,11 @@ public class Player : IEnumerable<Ship>
 			return _playerGrid.AllDeployed;
 		}
 	}
-	
+
+	/// <summary>
+	/// Gets a value indicating whether all of the ships are destroyed.
+	/// </summary>
+	/// <value><c>true</c> if is destroyed; otherwise, <c>false</c>.</value>
 	public bool IsDestroyed
 	{
 		get
@@ -142,7 +150,11 @@ public class Player : IEnumerable<Ship>
 			return _shots;
 		}
 	}
-	
+
+	/// <summary>
+	/// Gets the number of hits that the player has made.
+	/// </summary>
+	/// <value>The hits.</value>
 	public int Hits
 	{
 		get
@@ -163,7 +175,11 @@ public class Player : IEnumerable<Ship>
 			return _misses;
 		}
 	}
-	
+
+	/// <summary>
+	/// Gets the player's score.
+	/// </summary>
+	/// <value>The score.</value>
 	public int Score
 	{
 		get
@@ -208,7 +224,11 @@ public class Player : IEnumerable<Ship>
 	{
 		return GetEnumerator1();
 	}
-	
+
+	/// <summary>
+	/// Gets the enumerator.
+	/// </summary>
+	/// <returns>The enumerator1.</returns>
 	public IEnumerator<Ship> GetEnumerator1()
 	{
 		Ship[] result = new Ship[_Ships.Values.Count + 1];
@@ -251,7 +271,10 @@ public class Player : IEnumerable<Ship>
 		
 		return result;
 	}
-	
+
+	/// <summary>
+	/// Randomizes the deployment for the ships when initiated.
+	/// </summary>
 	public virtual void RandomizeDeployment()
 	{
 		bool placementSuccessful = false;

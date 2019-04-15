@@ -75,7 +75,7 @@ public class Tile
 			}
 			else
 			{
-				throw (new InvalidOperationException("There is already a ship at [" + System.Convert.ToString(Row) + ", " + System.Convert.ToString(Column) + "]"));
+				throw (new InvalidOperationException("There is already a ship at [" + System.Convert.ToString (Column) + ", " + System.Convert.ToString (Row) + "]"));
 			}
 		}
 	}

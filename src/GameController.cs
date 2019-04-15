@@ -243,10 +243,11 @@ public sealed class GameController
 		//deploy the players
 		_theGame.AddDeployedPlayer(_human);
 		_theGame.AddDeployedPlayer(_ai);
-		
-		SwitchState(GameState.Discovering);
+
+		SwitchState (GameState.Discovering);
+		Audio.PlaySoundEffect (GameResources.GameSound ("Siren"));
 	}
-	
+
 	/// <summary>
 	/// Gets the player to attack the indicated row and column.
 	/// </summary>
@@ -424,5 +425,5 @@ public sealed class GameController
 	{
 		_aiSetting = setting;
 	}
-	
+
 }

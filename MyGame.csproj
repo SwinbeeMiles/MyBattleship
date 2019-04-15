@@ -221,6 +221,7 @@
     <None Include="Resources\fonts\ffaccess.ttf" />
     <None Include="Resources\animations\.DS_Store" />
     <None Include="Resources\animations\splash.txt" />
+    <None Include="Resources\sounds\siren.wav" />
   </ItemGroup>
   <Target Name="CopyFiles">
     <Copy SourceFiles="@(MacLibraryFiles)" DestinationFolder="$(OutDir)" />

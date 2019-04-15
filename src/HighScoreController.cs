@@ -78,6 +78,7 @@ static class HighScoreController
 			s.Value = System.Convert.ToInt32 (System.Convert.ToInt32 (line.Substring (NAME_WIDTH)));
 			_Scores.Add (s);
 		}
+
 		input.Close ();
 	}
 
@@ -196,6 +197,8 @@ static class HighScoreController
 			_Scores.RemoveAt (_Scores.Count - 1);
 			_Scores.Add (s);
 			_Scores.Sort ();
+
+			SaveScores ();
 
 			GameController.EndCurrentState ();
 		}

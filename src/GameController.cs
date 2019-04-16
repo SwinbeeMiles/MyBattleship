@@ -18,7 +18,7 @@ public sealed class GameController
 	private static Stack<GameState> _state = new Stack<GameState>();
 	
 	private static AIOption _aiSetting;
-	
+	public static Random rnd = new Random ();
 	/// <summary>
 	/// Returns the current state of the game, indicating which screen is
 	/// currently being used
@@ -141,13 +141,13 @@ public sealed class GameController
 	/// <param name="showAnimation">If set to <c>true</c> show animation.</param>
 	private static void PlayHitSequence(int row, int column, bool showAnimation)
 	{
+
 		if (showAnimation)
 		{
 			UtilityFunctions.AddExplosion(row, column);
 		}
 		
 		Audio.PlaySoundEffect(GameResources.GameSound("Hit"));
-		
 		UtilityFunctions.DrawAnimationSequence();
 	}
 
@@ -179,6 +179,8 @@ public sealed class GameController
 	/// </remarks>
 	private static void AttackCompleted(object sender, AttackResult result)
 	{
+		int randomLose = rnd.Next (1, 3);
+		int randomDestroy = rnd.Next (1, 4);
 		bool isHuman = false;
 		isHuman = ReferenceEquals(_theGame.Player, HumanPlayer);
 		
@@ -195,6 +197,27 @@ public sealed class GameController
 		{
 			PlayHitSequence(System.Convert.ToInt32(result.Row), System.Convert.ToInt32(result.Column), isHuman);
 			Audio.PlaySoundEffect(GameResources.GameSound("Sink"));
+
+			if (randomDestroy == 1) 
+			{
+				Audio.PlaySoundEffect (GameResources.GameSound ("Destroy1"));
+			} 
+
+			else if (randomDestroy == 2) 
+			{
+				Audio.PlaySoundEffect (GameResources.GameSound ("Destroy2"));
+			} 
+
+			else if (randomDestroy == 3) 
+			{
+				Audio.PlaySoundEffect (GameResources.GameSound ("Destroy3"));
+			} 
+
+			else 
+			{
+				Audio.PlaySoundEffect (GameResources.GameSound ("Destroy4"));
+			}
+
 		}
 		else if (result.Value == ResultOfAttack.GameOver)
 		{
@@ -210,10 +233,17 @@ public sealed class GameController
 			if (HumanPlayer.IsDestroyed)
 			{
 				Audio.PlaySoundEffect(GameResources.GameSound("Lose"));
+				if (randomLose == 1) {
+					Audio.PlaySoundEffect (GameResources.GameSound ("Lose1"));
+				} else {
+					Audio.PlaySoundEffect (GameResources.GameSound ("Lose2"));
+				}
+
 			}
 			else
 			{
 				Audio.PlaySoundEffect(GameResources.GameSound("Winner"));
+				Audio.PlaySoundEffect (GameResources.GameSound ("Win1"));
 			}
 		}
 		else if (result.Value == ResultOfAttack.Hit)
@@ -240,12 +270,28 @@ public sealed class GameController
 	/// </remarks>
 	public static void EndDeployment()
 	{
+		int randStart = rnd.Next (1, 4);
 		//deploy the players
 		_theGame.AddDeployedPlayer(_human);
 		_theGame.AddDeployedPlayer(_ai);
 
 		SwitchState (GameState.Discovering);
 		Audio.PlaySoundEffect (GameResources.GameSound ("Siren"));
+		if (randStart == 1) 
+		{
+			Audio.PlaySoundEffect (GameResources.GameSound ("Start1"));
+		} 
+
+		else if (randStart == 2)
+		{
+			Audio.PlaySoundEffect (GameResources.GameSound ("Start2"));
+		} 
+
+		else
+		{
+			Audio.PlaySoundEffect (GameResources.GameSound ("Start3"));
+		}
+
 	}
 
 	/// <summary>
@@ -286,13 +332,14 @@ public sealed class GameController
 	/// to the AI player.</remarks>
 	private static void CheckAttackResult(AttackResult result)
 	{
-		if (result.Value == ResultOfAttack.Miss)
+		if (result.Value == ResultOfAttack.Miss) 
 		{
-			if (ReferenceEquals(_theGame.Player, ComputerPlayer))
+			if (ReferenceEquals (_theGame.Player, ComputerPlayer)) 
 			{
-				AIAttack();
+				AIAttack ();
 			}
-		}
+		} 
+
 		else if (result.Value == ResultOfAttack.GameOver)
 		{
 			SwitchState(GameState.EndingGame);

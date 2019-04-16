@@ -7,11 +7,11 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="src\Model\BattleShipsGame.cs">
     <Files>
-      <File FileName="src\UtilityFunctions.cs" Line="218" Column="92" />
-      <File FileName="src\GameController.cs" Line="356" Column="2" />
-      <File FileName="src\DeploymentController.cs" Line="160" Column="20" />
-      <File FileName="src\DiscoveryController.cs" Line="55" Column="21" />
-      <File FileName="src\Model\BattleShipsGame.cs" Line="103" Column="4" />
+      <File FileName="src\GameLogic.cs" Line="17" Column="4" />
+      <File FileName="src\GameController.cs" Line="14" Column="41" />
+      <File FileName="src\GameResources.cs" Line="75" Column="22" />
+      <File FileName="src\DeploymentController.cs" Line="71" Column="35" />
+      <File FileName="src\Model\BattleShipsGame.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

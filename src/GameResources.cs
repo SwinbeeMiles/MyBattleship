@@ -61,6 +61,16 @@ public static class GameResources
 		NewSound ("Miss", "watershot.wav");
 		NewSound ("Winner", "winner.wav");
 		NewSound ("Lose", "lose.wav");
+		NewSound ("Lose1", "Lose1.wav");
+		NewSound ("Lose2", "Lose2.wav");
+		NewSound ("Start1", "Start1.wav");
+		NewSound ("Start2", "Start2.wav");
+		NewSound ("Start3", "Start3.wav");
+		NewSound ("Win1", "Win1.wav");
+		NewSound ("Destroy1", "Destroy1.wav");
+		NewSound ("Destroy2", "Destroy2.wav");
+		NewSound ("Destroy3", "HitT1.wav");
+		NewSound ("Destroy4", "HitT2.wav");
 	}
 
 	/// <summary>

@@ -79,6 +79,7 @@ public sealed class GameController
 	/// </remarks>
 	public static void StartGame()
 	{
+		int randStart = rnd.Next (1, 10);
 		if (_theGame != null)
 		{
 			EndGame();
@@ -108,6 +109,13 @@ public sealed class GameController
 		_theGame.AttackCompleted += AttackCompleted;
 		
 		AddNewState(GameState.Deploying);
+		if (randStart == 1 || randStart == 2 || randStart == 3) {
+			Audio.PlaySoundEffect (GameResources.GameSound ("Start1"));
+		} else if (randStart == 4 || randStart == 5 || randStart == 6) {
+			Audio.PlaySoundEffect (GameResources.GameSound ("Start2"));
+		} else {
+			Audio.PlaySoundEffect (GameResources.GameSound ("Start3"));
+		}
 	}
 	
 	/// <summary>
@@ -270,28 +278,12 @@ public sealed class GameController
 	/// </remarks>
 	public static void EndDeployment()
 	{
-		int randStart = rnd.Next (1, 4);
 		//deploy the players
 		_theGame.AddDeployedPlayer(_human);
 		_theGame.AddDeployedPlayer(_ai);
 
 		SwitchState (GameState.Discovering);
 		Audio.PlaySoundEffect (GameResources.GameSound ("Siren"));
-		if (randStart == 1) 
-		{
-			Audio.PlaySoundEffect (GameResources.GameSound ("Start1"));
-		} 
-
-		else if (randStart == 2)
-		{
-			Audio.PlaySoundEffect (GameResources.GameSound ("Start2"));
-		} 
-
-		else
-		{
-			Audio.PlaySoundEffect (GameResources.GameSound ("Start3"));
-		}
-
 	}
 
 	/// <summary>

@@ -234,7 +234,7 @@ static class UtilityFunctions
 			SwinGame.ClearScreen ();
 		}
 
-		SwinGame.DrawFramerate (675, 585, GameResources.GameFont ("CourierSmall"));
+		SwinGame.DrawFramerate (585, 580, GameResources.GameFont ("CourierSmall"));
 	}
 
 	/// <summary>

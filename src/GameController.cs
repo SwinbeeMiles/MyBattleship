@@ -16,6 +16,8 @@ public sealed class GameController
 	private static AIPlayer _ai;
 	
 	private static Stack<GameState> _state = new Stack<GameState>();
+
+	private static bool muteFlag;
 	
 	private static AIOption _aiSetting;
 	public static Random rnd = new Random ();
@@ -454,6 +456,17 @@ public sealed class GameController
 	public static void EndCurrentState()
 	{
 		_state.Pop();
+	}
+
+	public static void Mute ()
+	{
+		if (muteFlag == false) {
+			muteFlag = true;
+			SwinGame.SetMusicVolume (0);
+		} else if (muteFlag == true) {
+			muteFlag = false;
+			SwinGame.SetMusicVolume (50);
+		}
 	}
 	
 	/// <summary>

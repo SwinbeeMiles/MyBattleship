@@ -29,6 +29,10 @@ public static class GameResources
 		NewImage ("Discovery", "discover.jpg");
 		NewImage ("Deploy", "deploy.jpg");
 
+		//Splashscreens
+		NewImage ("YouLose", "youlose.jpg");
+		NewImage ("YouWin", "youwin.jpg");
+
 		//Deployment
 		NewImage ("LeftRightButton", "deploy_dir_button_horiz.png");
 		NewImage ("UpDownButton", "deploy_dir_button_vert.png");

@@ -144,7 +144,7 @@ public abstract class AIPlayer : Player
 				return;
 			}
 			
-			SwinGame.Delay(5);
+			SwinGame.Delay(0);
 			SwinGame.ProcessEvents();
 			SwinGame.RefreshScreen();
 		}

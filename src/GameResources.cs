@@ -17,6 +17,7 @@ public static class GameResources
 		NewFont ("Courier", "cour.ttf", 18);
 		NewFont ("CourierSmall", "cour.ttf", 14);
 		NewFont ("Menu", "ffaccess.ttf", 8);
+        NewFont ("Time", "ffaccess.ttf", 15);
 	}
 
 	/// <summary>

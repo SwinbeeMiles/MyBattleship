@@ -10,7 +10,7 @@ using SwinGameSDK;
 /// </summary>
 public sealed class GameController
 {
-	
+	public static Timer _gameTimer = SwinGame.CreateTimer ();
 	private static BattleShipsGame _theGame;
 	private static Player _human;
 	private static AIPlayer _ai;
@@ -21,6 +21,27 @@ public sealed class GameController
 	
 	private static AIOption _aiSetting;
 	public static Random rnd = new Random ();
+
+	public static Timer GameTimer {
+		get {
+			return _gameTimer;
+		}
+	}
+
+	public static int TimeLeft ()
+	{
+		int _timeLeft = 180000;
+		_timeLeft -= (int)SwinGame.TimerTicks (GameTimer);
+		_timeLeft /= 1000;
+
+		if (_timeLeft < 0) {
+			_timeLeft = 0;
+			SwitchState (GameState.EndingGame);
+		}
+
+		return _timeLeft;
+	}
+
 	/// <summary>
 	/// Returns the current state of the game, indicating which screen is
 	/// currently being used
@@ -397,22 +418,29 @@ public sealed class GameController
 		
 		if (CurrentState == GameState.ViewingMainMenu)
 		{
+			SwinGame.StopTimer (GameTimer);
 			MenuController.DrawMainMenu();
 		}
 		else if (CurrentState == GameState.ViewingGameMenu)
 		{
+			SwinGame.StopTimer (GameTimer);
 			MenuController.DrawGameMenu();
 		}
 		else if (CurrentState == GameState.AlteringSettings)
 		{
+			SwinGame.StopTimer (GameTimer);
 			MenuController.DrawSettings();
 		}
 		else if (CurrentState == GameState.Deploying)
 		{
+			SwinGame.ResetTimer (GameTimer);
 			DeploymentController.DrawDeployment();
 		}
 		else if (CurrentState == GameState.Discovering)
 		{
+			if (SwinGame.TimerTicks (GameTimer) == 0){
+				SwinGame.StartTimer (GameTimer);
+			}
 			DiscoveryController.DrawDiscovery();
 		}
 		else if (CurrentState == GameState.EndingGame)

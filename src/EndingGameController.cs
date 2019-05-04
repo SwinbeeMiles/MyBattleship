@@ -18,9 +18,13 @@ static class EndingGameController
 		UtilityFunctions.DrawField (GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
 		UtilityFunctions.DrawSmallField (GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 
-		if (GameController.HumanPlayer.IsDestroyed) {
+		if ((int)SwinGame.TimerTicks(GameController.GameTimer) >= 180000) {
 			SwinGame.DrawBitmap (GameResources.GameImage ("YouLose"), 175, 175);
-		} else {
+		} 
+		else if (GameController.HumanPlayer.IsDestroyed) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("YouLose"), 175, 175);
+		} 
+		else {
 			SwinGame.DrawBitmap (GameResources.GameImage ("YouWin"), 175, 175);
 		}
 	}

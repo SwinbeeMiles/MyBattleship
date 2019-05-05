@@ -28,7 +28,7 @@ public sealed class GameController
 		}
 	}
 
-	public static int TimeLeft ()
+	public static string TimeLeft ()
 	{
 		int _timeLeft = 180000;
 		_timeLeft -= (int)SwinGame.TimerTicks (GameTimer);
@@ -39,7 +39,21 @@ public sealed class GameController
 			SwitchState (GameState.EndingGame);
 		}
 
-		return _timeLeft;
+		int _minutes;
+		int _seconds;
+
+		_minutes = _timeLeft / 60;
+		_seconds = _timeLeft - (_minutes*60);
+
+		string _timeLeftString;
+
+		if (_seconds < 10) {
+			_timeLeftString = _minutes + ":0" + _seconds;
+		} else {
+			_timeLeftString = _minutes + ":" + _seconds;
+		}
+
+		return _timeLeftString;
 	}
 
 	/// <summary>

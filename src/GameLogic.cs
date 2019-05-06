@@ -13,7 +13,7 @@ namespace MyGame
 			//Load Resources
 			GameResources.LoadResources ();
 
-			SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
+			GameController.PlayMusic ();
 
             //Run the game loop
 			while(!(true == SwinGame.WindowCloseRequested() || GameController.CurrentState == GameState.Quitting))

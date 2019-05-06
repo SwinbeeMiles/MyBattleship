@@ -25,7 +25,11 @@ public enum GameState
 	/// The player is altering the game settings
 	/// </summary>
 	AlteringSettings,
-	
+
+	/// <summary>
+	/// The player is altering the game musics
+	/// </summary>
+	AlterMusics,
 	/// <summary>
 	/// Players are deploying their ships
 	/// </summary>

@@ -21,7 +21,7 @@ public sealed class GameController
 	
 	private static AIOption _aiSetting;
 	public static Random rnd = new Random ();
-
+	private static int _musicChoice = rnd.Next (1, 5);
 	public static Timer GameTimer {
 		get {
 			return _gameTimer;
@@ -402,6 +402,8 @@ public sealed class GameController
 			MenuController.HandleGameMenuInput ();
 		} else if (CurrentState == GameState.AlteringSettings) {
 			MenuController.HandleSetupMenuInput ();
+		} else if (CurrentState == GameState.AlterMusics) {
+			MenuController.HandleMusicMenuInput ();
 		} else if (CurrentState == GameState.Deploying) {
 			DeploymentController.HandleDeploymentInput ();
 		} else if (CurrentState == GameState.Discovering) {
@@ -436,6 +438,9 @@ public sealed class GameController
 		} else if (CurrentState == GameState.AlteringSettings) {
 			SwinGame.StopTimer (GameTimer);
 			MenuController.DrawSettings ();
+		} else if (CurrentState == GameState.AlterMusics) {
+			SwinGame.StopTimer (GameTimer);
+			MenuController.DrawMusicSettings ();
 		} else if (CurrentState == GameState.Deploying) {
 			SwinGame.ResetTimer (GameTimer);
 			DeploymentController.DrawDeployment ();
@@ -504,4 +509,25 @@ public sealed class GameController
 		_aiSetting = setting;
 	}
 
+	public static void SetMusic (int music)
+	{
+		_musicChoice = music;
+	}
+
+	public static void PlayMusic ()
+	{
+		if (_musicChoice == 1) {
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("Background1"));
+		} else if (_musicChoice == 2) {
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("Background2"));
+		} else if (_musicChoice == 3) {
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("Background3"));
+		} else {
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("Background4"));
+		}
+	}
 }

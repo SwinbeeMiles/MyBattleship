@@ -84,7 +84,10 @@ public static class GameResources
 	/// </summary>
 	private static void LoadMusic ()
 	{
-		NewMusic ("Background", "deepblue.mp3");
+		NewMusic ("Background1", "Halo.mp3");
+		NewMusic ("Background2", "unreal.mp3");
+		NewMusic ("Background3", "shortie.mp3");
+		NewMusic ("Background4", "deepblue.mp3");
 	}
 
 	/// <summary>

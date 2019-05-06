@@ -16,9 +16,10 @@ static class MenuController
 	/// <remarks>
 	/// These are the text captions for the menu items.
 	/// </remarks>
-	private readonly static string [] [] _menuStructure = new string [] [] {new string[] {"PLAY", "SETUP", "SCORES", "QUIT", "MUTE", "INSTRUCTIONS"},
-		new string[] {"RETURN", "SURRENDER", "QUIT", "MUTE"},
-		new string[] {"EASY", "MEDIUM", "HARD"}};
+	private readonly static string [] [] _menuStructure = new string [] [] {new string[] {"PLAY", "SETUP", "SCORES", "QUIT", "MUTE", "INSTRUCTIONS","MUSIC"},
+		new string[] {"RETURN", "SURRENDER", "QUIT", "MUTE","Music"},
+		new string[] {"EASY", "MEDIUM", "HARD"},
+		new string [] {"1", "2", "3","4"}};
 
 	private const int MENU_TOP = 575;
 	private const int MENU_LEFT = 30;
@@ -31,6 +32,7 @@ static class MenuController
 	private const int MAIN_MENU = 0;
 	private const int GAME_MENU = 1;
 	private const int SETUP_MENU = 2;
+	private const int MUSIC_MENU = 3;
 
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
@@ -38,11 +40,18 @@ static class MenuController
 	private const int MAIN_MENU_QUIT_BUTTON = 3;
 	private const int MAIN_MENU_MUTE_BUTTON = 4;
 	private const int MAIN_MENU_INSTRUCTIONS_BUTTON = 5;
+	private const int MAIN_MENU_MUSIC_BUTTON = 6;
 
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	private const int SETUP_MENU_HARD_BUTTON = 2;
 	private const int SETUP_MENU_EXIT_BUTTON = 3;
+
+	private const int MUSIC_MENU_1_BUTTON = 0;
+	private const int MUSIC_MENU_2_BUTTON = 1;
+	private const int MUSIC_MENU_3_BUTTON = 2;
+	private const int MUSIC_MENU_4_BUTTON = 3;
+	private const int MUSIC_MENU_EXIT_BUTTON = 4;
 
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
@@ -153,6 +162,15 @@ static class MenuController
 
 		DrawButtons (MAIN_MENU);
 		DrawDifficulties (SETUP_MENU, 1, 1);
+	}
+
+	public static void DrawMusicSettings ()
+	{
+		//Clears the Screen to Black
+		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
+
+		DrawButtons (MAIN_MENU);
+		DrawButtons (MUSIC_MENU, 1, 5);
 	}
 
 	/// <summary>
@@ -268,6 +286,10 @@ static class MenuController
 		case SETUP_MENU:
 			PerformSetupMenuAction (button);
 			break;
+		case MUSIC_MENU:
+			PerformMusicMenuAction (button);
+			break;
+
 		case GAME_MENU:
 			PerformGameMenuAction (button);
 			break;
@@ -286,6 +308,9 @@ static class MenuController
 			break;
 		case MAIN_MENU_SETUP_BUTTON:
 			GameController.AddNewState (GameState.AlteringSettings);
+			break;
+		case MAIN_MENU_MUSIC_BUTTON:
+			GameController.AddNewState (GameState.AlterMusics);
 			break;
 		case MAIN_MENU_TOP_SCORES_BUTTON:
 			GameController.AddNewState (GameState.ViewingHighScores);
@@ -344,5 +369,39 @@ static class MenuController
 			GameController.Mute ();
 			break;
 		}
+	}
+	public static void HandleMusicMenuInput ()
+	{
+		bool handled = false;
+		handled = HandleMenuInput (MUSIC_MENU, 1, 5);
+
+		if (!handled) {
+			HandleMenuInput (MAIN_MENU, 0, 0);
+		}
+	}
+
+	private static void PerformMusicMenuAction (int button)
+	{
+		switch (button) {
+		case MUSIC_MENU_1_BUTTON:
+			GameController.SetMusic (1);
+			GameController.PlayMusic ();
+			break;
+		case MUSIC_MENU_2_BUTTON:
+			GameController.SetMusic (2);
+			GameController.PlayMusic ();
+			break;
+		case MUSIC_MENU_3_BUTTON:
+			GameController.SetMusic (3);
+			GameController.PlayMusic ();
+			break;
+
+		case MUSIC_MENU_4_BUTTON:
+			GameController.SetMusic (4);
+			GameController.PlayMusic ();
+			break;
+		}
+		//Always end state - handles exit button as well
+		GameController.EndCurrentState ();
 	}
 }

@@ -224,7 +224,7 @@ static class UtilityFunctions
 	public static void DrawBackground ()
 	{
 
-		if ((((GameController.CurrentState == GameState.ViewingMainMenu) || (GameController.CurrentState == GameState.ViewingGameMenu)) || (GameController.CurrentState == GameState.AlteringSettings)) || (GameController.CurrentState == GameState.ViewingHighScores)) {
+		if ((((GameController.CurrentState == GameState.ViewingMainMenu) || (GameController.CurrentState == GameState.ViewingGameMenu)) || (GameController.CurrentState == GameState.AlteringSettings)) || (GameController.CurrentState == GameState.AlterMusics) || (GameController.CurrentState == GameState.ViewingHighScores)) {
 			SwinGame.DrawBitmap (GameResources.GameImage ("Menu"), 0, 0);
 		} else if ((GameController.CurrentState == GameState.Discovering) || (GameController.CurrentState == GameState.EndingGame)) {
 			SwinGame.DrawBitmap (GameResources.GameImage ("Discovery"), 0, 0);

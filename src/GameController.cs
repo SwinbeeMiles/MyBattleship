@@ -96,6 +96,14 @@ public sealed class GameController
 		}
 	}
 
+	public static AIOption CurrentDifficulty
+	{
+		get 
+		{
+			return _aiSetting;
+		}
+	}
+
 	/// <summary>
 	/// Initializes the state that the player is inhabiting in the main menu.
 	/// </summary>
@@ -387,36 +395,25 @@ public sealed class GameController
 	{
 		//Read incoming input events
 		SwinGame.ProcessEvents();
-		
-		if (CurrentState == GameState.ViewingMainMenu)
-		{
-			MenuController.HandleMainMenuInput();
+
+		if (CurrentState == GameState.ViewingMainMenu) {
+			MenuController.HandleMainMenuInput ();
+		} else if (CurrentState == GameState.ViewingGameMenu) {
+			MenuController.HandleGameMenuInput ();
+		} else if (CurrentState == GameState.AlteringSettings) {
+			MenuController.HandleSetupMenuInput ();
+		} else if (CurrentState == GameState.Deploying) {
+			DeploymentController.HandleDeploymentInput ();
+		} else if (CurrentState == GameState.Discovering) {
+			DiscoveryController.HandleDiscoveryInput ();
+		} else if (CurrentState == GameState.EndingGame) {
+			EndingGameController.HandleEndOfGameInput ();
+		} else if (CurrentState == GameState.ViewingHighScores) {
+			HighScoreController.HandleHighScoreInput ();
+		} else if (CurrentState == GameState.ViewingInstructions) {
+			InstructionsController.HandleInstructionsInput ();
 		}
-		else if (CurrentState == GameState.ViewingGameMenu)
-		{
-			MenuController.HandleGameMenuInput();
-		}
-		else if (CurrentState == GameState.AlteringSettings)
-		{
-			MenuController.HandleSetupMenuInput();
-		}
-		else if (CurrentState == GameState.Deploying)
-		{
-			DeploymentController.HandleDeploymentInput();
-		}
-		else if (CurrentState == GameState.Discovering)
-		{
-			DiscoveryController.HandleDiscoveryInput();
-		}
-		else if (CurrentState == GameState.EndingGame)
-		{
-			EndingGameController.HandleEndOfGameInput();
-		}
-		else if (CurrentState == GameState.ViewingHighScores)
-		{
-			HighScoreController.HandleHighScoreInput();
-		}
-		
+
 		UtilityFunctions.UpdateAnimations();
 	}
 	
@@ -429,43 +426,30 @@ public sealed class GameController
 	public static void DrawScreen()
 	{
 		UtilityFunctions.DrawBackground();
-		
-		if (CurrentState == GameState.ViewingMainMenu)
-		{
+
+		if (CurrentState == GameState.ViewingMainMenu) {
 			SwinGame.StopTimer (GameTimer);
-			MenuController.DrawMainMenu();
-		}
-		else if (CurrentState == GameState.ViewingGameMenu)
-		{
+			MenuController.DrawMainMenu ();
+		} else if (CurrentState == GameState.ViewingGameMenu) {
 			SwinGame.StopTimer (GameTimer);
-			MenuController.DrawGameMenu();
-		}
-		else if (CurrentState == GameState.AlteringSettings)
-		{
+			MenuController.DrawGameMenu ();
+		} else if (CurrentState == GameState.AlteringSettings) {
 			SwinGame.StopTimer (GameTimer);
-			MenuController.DrawSettings();
-		}
-		else if (CurrentState == GameState.Deploying)
-		{
+			MenuController.DrawSettings ();
+		} else if (CurrentState == GameState.Deploying) {
 			SwinGame.ResetTimer (GameTimer);
-			DeploymentController.DrawDeployment();
-		}
-		else if (CurrentState == GameState.Discovering)
-		{
-			if (SwinGame.TimerTicks (GameTimer) == 0){
+			DeploymentController.DrawDeployment ();
+		} else if (CurrentState == GameState.Discovering) {
+			if (SwinGame.TimerTicks (GameTimer) == 0) {
 				SwinGame.StartTimer (GameTimer);
 			}
-			DiscoveryController.DrawDiscovery();
+			DiscoveryController.DrawDiscovery ();
+		} else if (CurrentState == GameState.EndingGame) {
+			EndingGameController.DrawEndOfGame ();
+		} else if (CurrentState == GameState.ViewingHighScores) {
+			HighScoreController.DrawHighScores ();
 		}
-		else if (CurrentState == GameState.EndingGame)
-		{
-			EndingGameController.DrawEndOfGame();
-		}
-		else if (CurrentState == GameState.ViewingHighScores)
-		{
-			HighScoreController.DrawHighScores();
-		}
-		
+
 		UtilityFunctions.DrawAnimations();
 		
 		SwinGame.RefreshScreen(120);

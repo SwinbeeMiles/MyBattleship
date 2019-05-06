@@ -16,14 +16,14 @@ static class MenuController
 	/// <remarks>
 	/// These are the text captions for the menu items.
 	/// </remarks>
-	private readonly static string [] [] _menuStructure = new string [] [] {new string[] {"PLAY", "SETUP", "SCORES", "QUIT", "MUTE"},
+	private readonly static string [] [] _menuStructure = new string [] [] {new string[] {"PLAY", "SETUP", "SCORES", "QUIT", "MUTE", "INSTRUCTIONS"},
 		new string[] {"RETURN", "SURRENDER", "QUIT", "MUTE"},
 		new string[] {"EASY", "MEDIUM", "HARD"}};
 
 	private const int MENU_TOP = 575;
 	private const int MENU_LEFT = 30;
 	private const int MENU_GAP = 0;
-	private const int BUTTON_WIDTH = 75;
+	private const int BUTTON_WIDTH = 90;
 	private const int BUTTON_HEIGHT = 15;
 	private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
 	private const int TEXT_OFFSET = 0;
@@ -37,6 +37,7 @@ static class MenuController
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
 	private const int MAIN_MENU_QUIT_BUTTON = 3;
 	private const int MAIN_MENU_MUTE_BUTTON = 4;
+	private const int MAIN_MENU_INSTRUCTIONS_BUTTON = 5;
 
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
@@ -49,6 +50,7 @@ static class MenuController
 	private const int GAME_MENU_MUTE_BUTTON = 3;
 
 	private readonly static Color MENU_COLOR = SwinGame.RGBAColor (2, 167, 252, 255);
+	private readonly static Color SELECTED_COLOR = SwinGame.RGBAColor (255, 255, 255, 255);
 	private readonly static Color HIGHLIGHT_COLOR = SwinGame.RGBAColor (1, 57, 86, 255);
 
 	/// <summary>
@@ -150,7 +152,7 @@ static class MenuController
 		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
 
 		DrawButtons (MAIN_MENU);
-		DrawButtons (SETUP_MENU, 1, 1);
+		DrawDifficulties (SETUP_MENU, 1, 1);
 	}
 
 	/// <summary>
@@ -183,7 +185,43 @@ static class MenuController
 			int btnLeft = 0;
 			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
 			//SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT)
+
 			SwinGame.DrawTextLines (_menuStructure [menu] [i], MENU_COLOR, Color.Black, GameResources.GameFont ("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+
+
+
+			if (SwinGame.MouseDown (MouseButton.LeftButton) && IsMouseOverMenu (i, level, xOffset)) {
+				SwinGame.DrawRectangle (HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+			}
+		}
+	}
+
+	private static void DrawDifficulties (int menu, int level, int xOffset)
+	{
+		int btnTop = 0;
+
+		btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
+		int i = 0;
+		for (i = 0; i <= _menuStructure [menu].Length - 1; i++) {
+			int btnLeft = 0;
+			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
+			//SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT)
+			if (GameController.CurrentDifficulty == AIOption.Easy && i == 0) {
+				SwinGame.DrawTextLines (_menuStructure [menu] [0], SELECTED_COLOR, Color.Black, GameResources.GameFont ("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+				continue;
+			}
+			else if (GameController.CurrentDifficulty == AIOption.Medium && i == 1) {
+				SwinGame.DrawTextLines (_menuStructure [menu] [1], SELECTED_COLOR, Color.Black, GameResources.GameFont ("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+				continue;
+			}
+			else if (GameController.CurrentDifficulty == AIOption.Hard && i == 2) {
+				SwinGame.DrawTextLines (_menuStructure [menu] [2], SELECTED_COLOR, Color.Black, GameResources.GameFont ("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+				continue;
+			}
+
+			SwinGame.DrawTextLines (_menuStructure [menu] [i], MENU_COLOR, Color.Black, GameResources.GameFont ("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+
+
 
 			if (SwinGame.MouseDown (MouseButton.LeftButton) && IsMouseOverMenu (i, level, xOffset)) {
 				SwinGame.DrawRectangle (HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -257,6 +295,9 @@ static class MenuController
 			break;
 		case MAIN_MENU_MUTE_BUTTON:
 			GameController.Mute ();
+			break;
+		case MAIN_MENU_INSTRUCTIONS_BUTTON:
+			GameController.AddNewState (GameState.ViewingInstructions);
 			break;
 		}
 	}

@@ -29,6 +29,7 @@ public static class GameResources
 		NewImage ("Menu", "main_page.jpg");
 		NewImage ("Discovery", "discover.jpg");
 		NewImage ("Deploy", "deploy.jpg");
+		NewImage ("Instructions", "instructions.jpg");
 
 		//Splashscreens
 		NewImage ("YouLose", "youlose.jpg");

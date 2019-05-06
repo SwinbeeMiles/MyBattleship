@@ -230,6 +230,8 @@ static class UtilityFunctions
 			SwinGame.DrawBitmap (GameResources.GameImage ("Discovery"), 0, 0);
 		} else if (GameController.CurrentState == GameState.Deploying) {
 			SwinGame.DrawBitmap (GameResources.GameImage ("Deploy"), 0, 0);
+		} else if (GameController.CurrentState == GameState.ViewingInstructions) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("Instructions"), 0, 0);
 		} else {
 			SwinGame.ClearScreen ();
 		}
